@@ -7,13 +7,13 @@ const basicFetch = async (endpoint) => {
     return json;
 }
 
-export default {
+const Tmdb =  {
     getHomeList: async () => {
         return [
             {
                 slug: 'originals',
                 title: 'Originais do Netflix',
-                items:  await basicFetch(`/dicover/tv?with_network=213&language=pt-BR&api_key=${API_KEY}`)
+                items:  await basicFetch(`/discover/tv?api_key=${API_KEY}&with_networks=213&language=pt-BR`)
             },
             {
                 slug: 'treding',
@@ -26,31 +26,53 @@ export default {
                 items:   await basicFetch(`/movie/top_rated?language=pt-BR&api_key=${API_KEY}`)
             },
             {
-                slug: 'action',
-                title: 'Ação',
-                items:  await basicFetch(`/dicover/movie?with_genres=28&language=pt-BR&api_key=${API_KEY}`)
+                slug: 'animation',
+                title: 'Animação',
+                items:  await basicFetch(`/discover/tv?api_key=${API_KEY}&with_genres=16&language=pt-BR`)
             },
             {
                 slug: 'comedy',
                 title: 'Comédia',
-                items:  await basicFetch(`/dicover/movie?with_genres=10749&language=pt-BR&api_key=${API_KEY}`)
+                items:  await basicFetch(`/discover/tv?api_key=${API_KEY}&with_genres=35&language=pt-BR}`)
             },
             {
-                slug: 'horror',
-                title: 'Terror',
-                items:  await basicFetch(`/dicover/movie?with_genres=27&language=pt-BR&api_key=${API_KEY}`)
+                slug: 'drama',
+                title: 'Drama',
+                items:  await basicFetch(`/discover/tv?api_key=${API_KEY}&with_genres=18&language=pt-BR}`)
             },
+            {
+                slug: 'western',
+                title: 'Faroeste',
+                items:  await basicFetch(`/discover/tv?api_key=${API_KEY}&with_genres=37&language=pt-BR}`)
+            },
+            // {
+            //     slug: 'history',
+            //     title: 'História',
+            //     items:  await basicFetch(`/discover/tv?api_key=${API_KEY}&with_genres=36&language=pt-BR`)
+            // },
+            {
+                slug: 'mistery',
+                title: 'Mistério',
+                items:  await basicFetch(`/discover/tv?api_key=${API_KEY}&with_genres=9648&language=pt-BR`)
+            },
+            // {
+            //     slug: 'musical',
+            //     title: 'Musical',
+            //     items:  await basicFetch(`/discover/tv?api_key=${API_KEY}&with_genres=10402&language=pt-BR`)
+            // },
             {
                 slug: 'romance',
                 title: 'Romance',
-                items:  await basicFetch(`/dicover/movie?with_genres=10749&language=pt-BR&api_key=${API_KEY}`)
+                items:  await basicFetch(`/discover/tv?api_key=${API_KEY}&with_genres=10749&language=pt-BR`)
             },
-            {
-                slug: 'documentary',
-                title: 'Documentários',
-                items: await basicFetch(`/dicover/movie?with_genres=99&language=pt-BR&api_key=${API_KEY}`)
-            },
+            // {
+            //     slug: 'documentary',
+            //     title: 'Documentários',
+            //     items: await basicFetch(`/discover/tv?api_key=${API_KEY}&with_genres=99&language=pt-BR`)
+            // },
         ];
     }
 }
+
+export default Tmdb;
 
